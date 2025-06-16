@@ -1,0 +1,25 @@
+import i18n from "i18next";
+import { initReactI18next } from "react-i18next";
+import LanguageDetector from "i18next-browser-languagedetector";
+
+import enCommon from "./resources/common/en.json";
+
+i18n
+  .use(LanguageDetector)
+  .use(initReactI18next)
+  .init({
+    fallbackLng: "en",
+    debug: import.meta.env.DEV,
+    interpolation: {
+      escapeValue: false,
+    },
+    resources: {
+      en: {
+        common: enCommon,
+      },
+    },
+    ns: ["common", "auth", "tasks"],
+    defaultNS: "common",
+  });
+
+export default i18n;

@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { store } from "./store";
 import { queryClient } from "./queryClient";
+import "@/shared/config/i18n";
 
 export function AppProvider({ children }: { children: ReactNode }) {
   return (
