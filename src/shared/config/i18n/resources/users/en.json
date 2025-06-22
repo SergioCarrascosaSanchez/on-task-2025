@@ -5,5 +5,7 @@
   "title": "List of users",
   "new_user": "Add new user",
   "create_user": "Create user",
-  "error_getting": "An error has ocurred retriving users"
+  "user_created": "User created",
+  "error_getting": "An error has ocurred retriving users",
+  "error_creating": "Error creating user"
 }
