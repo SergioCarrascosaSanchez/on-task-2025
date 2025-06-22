@@ -3,6 +3,7 @@ import { initReactI18next } from "react-i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 
 import enCommon from "./resources/common/en.json";
+import enUsers from "./resources/users/en.json";
 
 i18n
   .use(LanguageDetector)
@@ -16,9 +17,10 @@ i18n
     resources: {
       en: {
         common: enCommon,
+        users: enUsers,
       },
     },
-    ns: ["common", "auth", "tasks"],
+    ns: ["common", "users"],
     defaultNS: "common",
   });
 
