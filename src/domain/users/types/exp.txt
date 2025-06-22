@@ -1,0 +1,3 @@
+Suelen ser elementos secundarios o completetarios más simples
+No son objetos en si mismos e independientes
+Status, Currency, Filtros, ...

@@ -1,0 +1,8 @@
+Usarían los casos de uso.
+No siempre tienen que implementar un caso de uso.
+
+Los hooks siempre tienen estado, si no sería una función normal
+
+Suelen ser más usado en las pages que en los components
+
+Los components deben recibir la info por parámetros. Puede haber excepciones

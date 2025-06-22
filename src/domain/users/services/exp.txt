@@ -1,0 +1,5 @@
+OPCIONAL
+
+Lógica de negocio complejo entre entidades
+
+Solo la interfaz, no la implementación

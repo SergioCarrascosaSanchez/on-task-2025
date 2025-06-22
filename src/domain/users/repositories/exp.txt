@@ -1,0 +1,7 @@
+Establecer la interfaz de las api (no tiene porque ser REST)
+Solo la interfaz. Se implementan en infra/API
+Conoce User no UserDTO
+
+fetchUsers -> () => User[]
+
+createUser -> (User) => void

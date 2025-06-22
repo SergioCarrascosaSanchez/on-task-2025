@@ -1,0 +1,6 @@
+Son las acciones que se pueden hacer en la aplicación.
+Crear un usuario, Asignarle una tarea, ...
+
+Reciben una api concreta y realizan una acción
+
+Solo conoce Domain
