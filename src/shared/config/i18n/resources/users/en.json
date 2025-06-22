@@ -4,5 +4,6 @@
   "email": "Email",
   "title": "List of users",
   "new_user": "Add new user",
+  "create_user": "Create user",
   "error_getting": "An error has ocurred retriving users"
 }
