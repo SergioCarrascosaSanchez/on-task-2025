@@ -5,13 +5,20 @@ import { Typography } from "@/shared/ui/typography";
 import { useTranslation } from "react-i18next";
 
 export function UsersPage() {
-  const { data: users } = useUsers();
+  const { data: users, isLoading, isError } = useUsers();
   const { t } = useTranslation("users");
+  const { t: tCommon } = useTranslation("common");
 
-  if (!users)
+  if (isLoading)
     return (
       <Page>
-        <p>Loading</p>
+        <p>{tCommon("loading")}</p>
+      </Page>
+    );
+  if (!users || isError)
+    return (
+      <Page>
+        <p>{t("error_getting")}</p>
       </Page>
     );
   return (

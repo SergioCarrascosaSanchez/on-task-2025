@@ -2,5 +2,6 @@
   "id": "ID",
   "full_name": "Full name",
   "email": "Email",
-  "title": "List of users"
+  "title": "List of users",
+  "error_getting": "An error has ocurred retriving users"
 }
