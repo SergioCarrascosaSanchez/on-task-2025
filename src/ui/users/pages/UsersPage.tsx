@@ -1,8 +1,7 @@
 import { Page } from "@/shared/ui/Page/Page";
-import { UserTable } from "../components/UserTable";
 import { useUsers } from "../hooks/useUsers";
-import { Typography } from "@/shared/ui/typography";
 import { useTranslation } from "react-i18next";
+import { UserTableDataState } from "../components/UserTableDataState";
 
 export function UsersPage() {
   const { data: users, isLoading, isError } = useUsers();
@@ -21,12 +20,5 @@ export function UsersPage() {
         <p>{t("error_getting")}</p>
       </Page>
     );
-  return (
-    <Page>
-      <Typography variant="h1" className="mb-5">
-        {t("title")}
-      </Typography>
-      <UserTable data={users} />
-    </Page>
-  );
+  return <UserTableDataState users={users} />;
 }

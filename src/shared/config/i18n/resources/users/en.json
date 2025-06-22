@@ -3,5 +3,6 @@
   "full_name": "Full name",
   "email": "Email",
   "title": "List of users",
+  "new_user": "Add new user",
   "error_getting": "An error has ocurred retriving users"
 }
