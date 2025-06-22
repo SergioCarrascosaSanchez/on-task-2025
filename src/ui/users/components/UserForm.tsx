@@ -1,4 +1,4 @@
-import type { User } from "@/domain/users/entities/User";
+import type { UserToCreate } from "@/domain/users/types/UserToCreate";
 import { Input } from "@/shared/ui/input";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
@@ -7,7 +7,7 @@ export function UserForm() {
   const {
     register,
     formState: { errors },
-  } = useFormContext<Exclude<User, "id">>();
+  } = useFormContext<UserToCreate>();
   const { t } = useTranslation("users");
   const { t: tCommon } = useTranslation("common");
   return (

@@ -1,4 +1,3 @@
-import type { User } from "@/domain/users/entities/User";
 import {
   Dialog,
   DialogContent,
@@ -9,6 +8,8 @@ import { useTranslation } from "react-i18next";
 import { useForm, FormProvider } from "react-hook-form";
 import { Button } from "@/shared/ui/button";
 import { UserForm } from "./UserForm";
+import { useCreateUser } from "../hooks/useCreateUser";
+import type { UserToCreate } from "@/domain/users/types/UserToCreate";
 
 interface CreateUserModalProps {
   isOpen: boolean;
@@ -18,10 +19,16 @@ interface CreateUserModalProps {
 export function CreateUserModal({ isOpen, handleClose }: CreateUserModalProps) {
   const { t } = useTranslation("users");
   const { t: tCommon } = useTranslation("common");
-  const methods = useForm<Exclude<User, "id">>();
+  const methods = useForm<UserToCreate>();
+  const userCreation = useCreateUser();
 
-  const onSubmit = (values: Exclude<User, "id">) => {
-    console.log(values);
+  const onSubmit = (values: UserToCreate) => {
+    userCreation.mutate(
+      { user: values },
+      {
+        onSuccess: handleClose,
+      }
+    );
   };
 
   return (
@@ -42,7 +49,10 @@ export function CreateUserModal({ isOpen, handleClose }: CreateUserModalProps) {
           <Button onClick={handleClose} variant={"outline"}>
             {tCommon("cancel")}
           </Button>
-          <Button onClick={methods.handleSubmit(onSubmit)}>
+          <Button
+            disabled={userCreation.isPending}
+            onClick={methods.handleSubmit(onSubmit)}
+          >
             {t("create_user")}
           </Button>
         </div>
