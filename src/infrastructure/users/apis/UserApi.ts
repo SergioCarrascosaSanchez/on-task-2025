@@ -5,7 +5,10 @@ import { mapUserToCreateToCreateUserDto } from "../mappers/mapUserToCreateToCrea
 
 export const UserApi: UserRepository = {
   async fetchUsers() {
-    const { data, error } = await supabase.from("Users").select();
+    const { data, error } = await supabase
+      .from("Users")
+      .select()
+      .eq("status", "active");
 
     if (error) {
       throw new Error(`Error fetching users: ${error.message}`);
