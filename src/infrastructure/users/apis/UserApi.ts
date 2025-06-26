@@ -2,6 +2,7 @@ import type { UserRepository } from "@/domain/users/repositories/UserRepository"
 import { supabase } from "@/shared/lib/supabase/client";
 import { mapUserDtoToUser } from "../mappers/mapUserDtoToUser";
 import { mapUserToCreateToCreateUserDto } from "../mappers/mapUserToCreateToCreateUserDto";
+import { mapUserToUpdateToUpdateUserDto } from "../mappers/mapUserToUpdateToUpdateUserDto";
 
 export const UserApi: UserRepository = {
   async fetchUsers() {
@@ -48,7 +49,17 @@ export const UserApi: UserRepository = {
       .eq("id", id);
 
     if (error) {
-      throw new Error(`Error fetching users: ${error.message}`);
+      throw new Error(`Error deleting users: ${error.message}`);
+    }
+  },
+  async updateUser(user, id) {
+    const { error } = await supabase
+      .from("Users")
+      .update(mapUserToUpdateToUpdateUserDto(user))
+      .eq("id", id);
+
+    if (error) {
+      throw new Error(`Error updating users: ${error.message}`);
     }
   },
 };

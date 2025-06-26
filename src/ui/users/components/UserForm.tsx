@@ -3,7 +3,11 @@ import { Input } from "@/shared/ui/input";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
-export function UserForm() {
+interface UserFormProps {
+  isEdit?: boolean;
+}
+
+export function UserForm({ isEdit = false }: UserFormProps) {
   const {
     register,
     formState: { errors },
@@ -21,16 +25,20 @@ export function UserForm() {
           required: tCommon("errors.required"),
         })}
       />
-      <Input
-        label={t("email")}
-        type="email"
-        required
-        placeholder={tCommon("input_placeholder")}
-        error={errors.email?.message}
-        {...register("email", {
-          required: tCommon("errors.required"),
-        })}
-      />
+      {!isEdit && (
+        <Input
+          label={t("email")}
+          type="email"
+          required
+          disabled={isEdit}
+          placeholder={tCommon("input_placeholder")}
+          error={errors.email?.message}
+          {...register("email", {
+            validate: (value) =>
+              !isEdit && !value ? tCommon("errors.required") : true,
+          })}
+        />
+      )}
     </div>
   );
 }

@@ -2,6 +2,7 @@
   "loading": "Loading...",
   "cancel": "Cancel",
   "input_placeholder": "Enter value...",
+  "update": "Update",
   "errors": {
     "required": "This field is required"
   }

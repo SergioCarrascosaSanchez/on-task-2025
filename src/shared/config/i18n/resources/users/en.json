@@ -5,9 +5,12 @@
   "title": "List of users",
   "new_user": "Add new user",
   "create_user": "Create user",
+  "update_user": "Update user",
   "user_created": "User created",
   "user_deleted": "User deleted",
+  "user_updated": "User updated",
   "error_getting": "An error has ocurred retriving users",
   "error_creating": "Error creating user",
-  "error_deleteing": "An error has ocurred deleting user"
+  "error_deleteing": "An error has ocurred deleting user",
+  "error_updating": "An error has ocurred updating user"
 }
