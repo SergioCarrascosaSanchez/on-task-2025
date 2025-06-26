@@ -6,5 +6,5 @@ export interface UserRepository {
   //fetchUserById: (id: string) => Promise<User>;
   createUser: (user: UserToCreate) => Promise<void>;
   //updateUser: (user: User) => Promise<void>;
-  //deleteUser: (id: string) => Promise<void>;
+  deleteUser: (id: string) => Promise<void>;
 }

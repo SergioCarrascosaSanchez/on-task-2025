@@ -6,6 +6,8 @@
   "new_user": "Add new user",
   "create_user": "Create user",
   "user_created": "User created",
+  "user_deleted": "User deleted",
   "error_getting": "An error has ocurred retriving users",
-  "error_creating": "Error creating user"
+  "error_creating": "Error creating user",
+  "error_deleteing": "An error has ocurred deleting user"
 }

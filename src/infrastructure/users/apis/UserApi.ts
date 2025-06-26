@@ -16,8 +16,6 @@ export const UserApi: UserRepository = {
     return data.map(mapUserDtoToUser);
   },
   async createUser(user) {
-    //import.meta.env.
-
     const { data: authUser, error: errorCreatingAuth } =
       await supabase.auth.signUp({
         email: user.email,
@@ -38,6 +36,16 @@ export const UserApi: UserRepository = {
 
     if (error) {
       throw new Error(`Error creating user: ${error.message}`);
+    }
+  },
+  async deleteUser(id: string) {
+    const { error } = await supabase
+      .from("Users")
+      .update({ status: "disabled" })
+      .eq("id", id);
+
+    if (error) {
+      throw new Error(`Error fetching users: ${error.message}`);
     }
   },
 };
