@@ -4,6 +4,8 @@ import { PencilIcon, Trash2 } from "lucide-react";
 import { useDeleteUser } from "../hooks/useDeleteUser";
 import { useState } from "react";
 import { UpdateUserModal } from "./UpdateUserModal";
+import { Button } from "@/shared/ui/button";
+import { IconButton } from "@/shared/ui/icon-button";
 
 interface UserTableRowProps {
   user: User;
@@ -19,15 +21,20 @@ export function UserTableRow({ user }: UserTableRowProps) {
       <TableCell>{user.fullName}</TableCell>
       <TableCell>{user.email}</TableCell>
       <TableActions>
-        <PencilIcon
+        <IconButton
           onClick={() => setIsUpdateModalOpen(true)}
-          size={18}
-          color={"var(--foreground)"}
+          icon={<PencilIcon size={16} color={"var(--foreground)"} />}
         />
-        <Trash2
+        <IconButton
           onClick={() => deleteUser({ user })}
-          size={18}
-          color={isDeleting ? "var(--muted-foreground)" : "var(--destructive)"}
+          icon={
+            <Trash2
+              size={16}
+              color={
+                isDeleting ? "var(--muted-foreground)" : "var(--destructive)"
+              }
+            />
+          }
         />
       </TableActions>
       <UpdateUserModal
