@@ -93,6 +93,20 @@ function TableCell({ className, ...props }: React.ComponentProps<"td">) {
   );
 }
 
+function TableActions({
+  className,
+  children,
+  ...props
+}: React.ComponentProps<"td"> & { children?: React.ReactNode }) {
+  return (
+    <TableCell data-slot="table-actions" className={className} {...props}>
+      <div className="flex w-full items-center justify-end gap-4">
+        {children}
+      </div>
+    </TableCell>
+  );
+}
+
 function TableCaption({
   className,
   ...props
@@ -115,4 +129,5 @@ export {
   TableRow,
   TableCell,
   TableCaption,
+  TableActions,
 };

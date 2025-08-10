@@ -1,5 +1,5 @@
 import type { User } from "@/domain/users/entities/User";
-import { TableCell, TableRow } from "@/shared/ui/table";
+import { TableActions, TableCell, TableRow } from "@/shared/ui/table";
 import { PencilIcon, Trash2 } from "lucide-react";
 import { useDeleteUser } from "../hooks/useDeleteUser";
 import { useState } from "react";
@@ -18,7 +18,7 @@ export function UserTableRow({ user }: UserTableRowProps) {
       <TableCell>{user.id}</TableCell>
       <TableCell>{user.fullName}</TableCell>
       <TableCell>{user.email}</TableCell>
-      <TableCell className="flex justify-end items-center gap-4">
+      <TableActions>
         <PencilIcon
           onClick={() => setIsUpdateModalOpen(true)}
           size={18}
@@ -29,7 +29,7 @@ export function UserTableRow({ user }: UserTableRowProps) {
           size={18}
           color={isDeleting ? "var(--muted-foreground)" : "var(--destructive)"}
         />
-      </TableCell>
+      </TableActions>
       <UpdateUserModal
         user={user}
         isOpen={isUpdateModalOpen}
