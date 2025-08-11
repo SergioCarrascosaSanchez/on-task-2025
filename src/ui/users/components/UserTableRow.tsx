@@ -4,7 +4,6 @@ import { PencilIcon, Trash2 } from "lucide-react";
 import { useDeleteUser } from "../hooks/useDeleteUser";
 import { useState } from "react";
 import { UpdateUserModal } from "./UpdateUserModal";
-import { Button } from "@/shared/ui/button";
 import { IconButton } from "@/shared/ui/icon-button";
 
 interface UserTableRowProps {

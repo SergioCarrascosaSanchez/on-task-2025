@@ -3,21 +3,34 @@ import { supabase } from "@/shared/lib/supabase/client";
 import { mapUserDtoToUser } from "../mappers/mapUserDtoToUser";
 import { mapUserToCreateToCreateUserDto } from "../mappers/mapUserToCreateToCreateUserDto";
 import { mapUserToUpdateToUpdateUserDto } from "../mappers/mapUserToUpdateToUpdateUserDto";
+import { mapUserListParamsToApiQuery } from "../mappers/mapUserListParamsToApiQuery";
 
 export const UserApi: UserRepository = {
-  async fetchUsers() {
-    const { data, error } = await supabase
+  async fetchUsers(params) {
+    const { from, to, search } = mapUserListParamsToApiQuery(params);
+
+    let query = supabase
       .from("Users")
-      .select()
-      .eq("status", "active");
+      .select("*", { count: "exact" })
+      .eq("status", "active")
+      .order("created_at", { ascending: false })
+      .range(from, to);
+
+    if (search) {
+      query = query.or(`name.ilike.%${search}%,email.ilike.%${search}%`);
+    }
+
+    const { data, error, count } = await query;
 
     if (error) {
       throw new Error(`Error fetching users: ${error.message}`);
     }
 
-    if (!data) return [];
-
-    return data.map(mapUserDtoToUser);
+    const rows = data ?? [];
+    return {
+      total: count ?? rows.length,
+      users: rows.map(mapUserDtoToUser),
+    };
   },
   async createUser(user) {
     const { data: authUser, error: errorCreatingAuth } =

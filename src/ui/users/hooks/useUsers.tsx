@@ -5,8 +5,8 @@ import { GetUsers } from "@/use-cases/users/GetUsers";
 import { useQuery } from "@tanstack/react-query";
 
 export function useUsers(
-  repo: UserRepository = UserApi,
-  params?: UsersListParams
+  params?: UsersListParams,
+  repo: UserRepository = UserApi
 ) {
   const getUsers = GetUsers(repo);
   return useQuery({

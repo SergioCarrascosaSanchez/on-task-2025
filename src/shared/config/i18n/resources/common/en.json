@@ -3,6 +3,7 @@
   "cancel": "Cancel",
   "input_placeholder": "Enter value...",
   "update": "Update",
+  "search_placeholder": "Search...",
   "errors": {
     "required": "This field is required"
   }

@@ -6,7 +6,9 @@ export function UserTableHeader() {
     <TableHeader>
       <TableRow>
         {USER_TABLE_HEADER.map((label) => (
-          <TableHead className="w-[100px]">{label}</TableHead>
+          <TableHead className="w-[100px]" key={label}>
+            {label}
+          </TableHead>
         ))}
       </TableRow>
     </TableHeader>
