@@ -1,7 +1,7 @@
-import { queryClient } from "@/app/queryClient";
 import type { UserRepository } from "@/domain/users/repositories/UserRepository";
 import type { UserToUpdate } from "@/domain/users/types/UserToUpdate";
 import { UserApi } from "@/infrastructure/users/apis/UserApi";
+import { queryClient } from "@/shared/lib/queryClient";
 import { UpdateUser } from "@/use-cases/users/UpdateUser";
 import { useMutation } from "@tanstack/react-query";
 import toast from "react-hot-toast";

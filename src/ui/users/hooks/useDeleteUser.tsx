@@ -1,4 +1,4 @@
-import { queryClient } from "@/app/queryClient";
+import { queryClient } from "@/shared/lib/queryClient";
 import type { User } from "@/domain/users/entities/User";
 import type { UserRepository } from "@/domain/users/repositories/UserRepository";
 import { UserApi } from "@/infrastructure/users/apis/UserApi";
