@@ -3,6 +3,5 @@ import type { UserToCreate } from "@/domain/users/types/UserToCreate";
 
 export const CreateUser =
   (repo: UserRepository, user: UserToCreate) => async () => {
-    const users = await repo.createUser(user);
-    return users;
+    await repo.createUser(user);
   };
