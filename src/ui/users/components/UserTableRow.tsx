@@ -21,10 +21,12 @@ export function UserTableRow({ user }: UserTableRowProps) {
       <TableCell>{user.email}</TableCell>
       <TableActions>
         <IconButton
+          data-testid="edit-button"
           onClick={() => setIsUpdateModalOpen(true)}
           icon={<PencilIcon size={16} color={"var(--foreground)"} />}
         />
         <IconButton
+          data-testid="delete-button"
           onClick={() => deleteUser({ user })}
           icon={
             <Trash2
