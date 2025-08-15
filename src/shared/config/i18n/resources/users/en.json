@@ -11,6 +11,6 @@
   "user_updated": "User updated",
   "error_getting": "An error has ocurred retriving users",
   "error_creating": "Error creating user",
-  "error_deleteing": "An error has ocurred deleting user",
+  "error_deleting": "An error has ocurred deleting user",
   "error_updating": "An error has ocurred updating user"
 }
