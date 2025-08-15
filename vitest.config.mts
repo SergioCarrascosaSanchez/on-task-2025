@@ -33,6 +33,7 @@ export default defineConfig({
         "tailwind.config.*",
         "eslint.config.*",
         "vitest.config.*",
+        "src/main.tsx",
       ],
     },
   },
