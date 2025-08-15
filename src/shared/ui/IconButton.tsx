@@ -1,6 +1,6 @@
 import * as React from "react";
 import { cn } from "@/shared/lib/utils";
-import { buttonVariants } from "./button";
+import { buttonVariants } from "./Button";
 
 type IconButtonProps = Omit<
   React.ButtonHTMLAttributes<HTMLButtonElement>,

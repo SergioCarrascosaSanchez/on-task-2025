@@ -1,10 +1,10 @@
 import type { User } from "@/domain/users/entities/User";
-import { TableActions, TableCell, TableRow } from "@/shared/ui/table";
+import { TableActions, TableCell, TableRow } from "@/shared/ui/Table";
 import { PencilIcon, Trash2 } from "lucide-react";
 import { useDeleteUser } from "../hooks/useDeleteUser";
 import { useState } from "react";
 import { UpdateUserModal } from "./UpdateUserModal";
-import { IconButton } from "@/shared/ui/icon-button";
+import { IconButton } from "@/shared/ui/IconButton";
 
 interface UserTableRowProps {
   user: User;

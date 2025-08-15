@@ -1,5 +1,5 @@
 import type { UserToCreate } from "@/domain/users/types/UserToCreate";
-import { Input } from "@/shared/ui/input";
+import { Input } from "@/shared/ui/Input";
 import { useFormContext } from "react-hook-form";
 import { useTranslation } from "react-i18next";
 
