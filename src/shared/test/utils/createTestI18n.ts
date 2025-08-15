@@ -1,7 +1,7 @@
 import { createInstance } from "i18next";
 import { initReactI18next } from "react-i18next";
-import enCommon from "../i18n/resources/common/en.json";
-import enUsers from "../i18n/resources/users/en.json";
+import enCommon from "../../config/i18n/resources/common/en.json";
+import enUsers from "../../config/i18n/resources/users/en.json";
 
 export function createTestI18n(lng: string = "en") {
   const i18n = createInstance();
