@@ -20,6 +20,7 @@ export function UserForm({ isEdit = false }: UserFormProps) {
         label={t("full_name")}
         placeholder={tCommon("input_placeholder")}
         required
+        data-testid={"fullName"}
         error={errors.fullName?.message}
         {...register("fullName", {
           required: tCommon("errors.required"),
@@ -31,6 +32,7 @@ export function UserForm({ isEdit = false }: UserFormProps) {
           type="email"
           required
           disabled={isEdit}
+          data-testid={"email"}
           placeholder={tCommon("input_placeholder")}
           error={errors.email?.message}
           {...register("email", {

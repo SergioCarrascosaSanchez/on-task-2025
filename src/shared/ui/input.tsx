@@ -25,6 +25,7 @@ function Input({
     <div className="flex flex-col gap-1.5">
       {label && (
         <label
+          htmlFor={props.name}
           className={cn(
             "text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70",
             hasError && "text-destructive"
