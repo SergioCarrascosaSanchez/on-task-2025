@@ -87,14 +87,14 @@ function Avatar({
 
 function getFallbackColorClasses(name: string): { bg: string; text: string } {
   const palette: Array<{ bg: string; text: string }> = [
-    { bg: "bg-red-200/50", text: "text-red-800" },
-    { bg: "bg-orange-200/50", text: "text-orange-800" },
-    { bg: "bg-amber-200/50", text: "text-amber-800" },
-    { bg: "bg-green-200/50", text: "text-green-800" },
-    { bg: "bg-teal-200/50", text: "text-teal-800" },
-    { bg: "bg-blue-200/50", text: "text-blue-800" },
-    { bg: "bg-indigo-200/50", text: "text-indigo-800" },
-    { bg: "bg-purple-200/50", text: "text-purple-800" },
+    { bg: "bg-red-100/80", text: "text-red-800" },
+    { bg: "bg-orange-100/80", text: "text-orange-800" },
+    { bg: "bg-amber-100/80", text: "text-amber-800" },
+    { bg: "bg-green-100/80", text: "text-green-800" },
+    { bg: "bg-teal-100/80", text: "text-teal-800" },
+    { bg: "bg-blue-100/80", text: "text-blue-800" },
+    { bg: "bg-indigo-100/80", text: "text-indigo-800" },
+    { bg: "bg-purple-100/80", text: "text-purple-800" },
   ];
   if (!name) return palette[0];
   const code = name.charCodeAt(0) || 0;

@@ -1,6 +1,6 @@
 import { cn } from "@/shared/lib/utils";
 import { Typography } from "../Typography";
-import { Avatar } from "../avatar";
+import { Avatar } from "../Avatar";
 
 interface SidebarAccountItemProps {
   isExtended: boolean;
