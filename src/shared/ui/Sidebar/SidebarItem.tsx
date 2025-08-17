@@ -33,7 +33,7 @@ export function SidebarItem({
         )}
       >
         <Icon
-          className={`size-5 ${isActive ? "stroke-foreground" : "stroke-ring"}`}
+          className={`size-5 ${isActive ? "stroke-foreground" : "stroke-subtle"}`}
         />
         {isExtended && (
           <Typography variant="small" className="font-medium">
