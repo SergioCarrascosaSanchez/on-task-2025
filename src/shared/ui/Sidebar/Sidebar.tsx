@@ -1,11 +1,12 @@
 import { FoldersIcon, UsersIcon } from "lucide-react";
 
 import { SidebarItem } from "./SidebarItem";
-import { useRouterState } from "@tanstack/react-router";
+import { useNavigate, useRouterState } from "@tanstack/react-router";
 import { SidebarAccountItem } from "./SidebarAccountItem";
 import { useState } from "react";
 import { cn } from "@/shared/lib/utils";
 import { SidebarToggle } from "./SidebarToggle";
+import { SidebarSettings } from "./SidebarSettings";
 
 export function Sidebar() {
   const [isExtended, setIsExtended] = useState<boolean>(false);
@@ -14,6 +15,7 @@ export function Sidebar() {
   const notExtendedClasses = "w-20 px-4 py-10";
   const commonClases =
     "h-screen bg-sidebar flex flex-col justify-between relative";
+  const navigate = useNavigate();
   return (
     <div
       className={cn(
@@ -26,17 +28,20 @@ export function Sidebar() {
         <SidebarItem
           label="Users"
           icon={UsersIcon}
-          route="/users/"
+          onClick={() => navigate({ to: "/users" })}
           isActive={path.location.pathname === "/users"}
           isExtended={isExtended}
         />
         <SidebarItem
           label="Groups"
           icon={FoldersIcon}
-          route="/groups/"
+          onClick={() => navigate({ to: "/" })}
           isActive={path.location.pathname === "/groups"}
           isExtended={isExtended}
         />
+      </div>
+      <div>
+        <SidebarSettings isExtended={isExtended} />
       </div>
       <SidebarToggle
         isExtended={isExtended}
