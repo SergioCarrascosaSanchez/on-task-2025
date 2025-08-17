@@ -44,7 +44,7 @@ export const Typography: React.FC<TypographyProps> = ({
     },
     p: {
       element: "p",
-      className: "leading-7 [&:not(:first-child)]:mt-6",
+      className: "leading-4 [&:not(:first-child)]:mt-2",
     },
     blockquote: {
       element: "blockquote",
@@ -65,7 +65,7 @@ export const Typography: React.FC<TypographyProps> = ({
     },
     small: {
       element: "small",
-      className: "text-sm leading-none font-medium",
+      className: "text-sm leading-none",
     },
     muted: {
       element: "p",

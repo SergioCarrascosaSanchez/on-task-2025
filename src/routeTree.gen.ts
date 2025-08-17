@@ -10,43 +10,51 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as UsersIndexRouteImport } from './routes/users/index'
+import { Route as UsersUsersRouteImport } from './routes/_users/users'
+import { Route as UsersUsersIndexRouteImport } from './routes/_users/users/index'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UsersIndexRoute = UsersIndexRouteImport.update({
-  id: '/users/',
-  path: '/users/',
+const UsersUsersRoute = UsersUsersRouteImport.update({
+  id: '/_users/users',
+  path: '/users',
   getParentRoute: () => rootRouteImport,
+} as any)
+const UsersUsersIndexRoute = UsersUsersIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => UsersUsersRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/users': typeof UsersIndexRoute
+  '/users': typeof UsersUsersRouteWithChildren
+  '/users/': typeof UsersUsersIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/users': typeof UsersIndexRoute
+  '/users': typeof UsersUsersIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/users/': typeof UsersIndexRoute
+  '/_users/users': typeof UsersUsersRouteWithChildren
+  '/_users/users/': typeof UsersUsersIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/users'
+  fullPaths: '/' | '/users' | '/users/'
   fileRoutesByTo: FileRoutesByTo
   to: '/' | '/users'
-  id: '__root__' | '/' | '/users/'
+  id: '__root__' | '/' | '/_users/users' | '/_users/users/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  UsersIndexRoute: typeof UsersIndexRoute
+  UsersUsersRoute: typeof UsersUsersRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -58,19 +66,38 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/users/': {
-      id: '/users/'
+    '/_users/users': {
+      id: '/_users/users'
       path: '/users'
       fullPath: '/users'
-      preLoaderRoute: typeof UsersIndexRouteImport
+      preLoaderRoute: typeof UsersUsersRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_users/users/': {
+      id: '/_users/users/'
+      path: '/'
+      fullPath: '/users/'
+      preLoaderRoute: typeof UsersUsersIndexRouteImport
+      parentRoute: typeof UsersUsersRoute
     }
   }
 }
 
+interface UsersUsersRouteChildren {
+  UsersUsersIndexRoute: typeof UsersUsersIndexRoute
+}
+
+const UsersUsersRouteChildren: UsersUsersRouteChildren = {
+  UsersUsersIndexRoute: UsersUsersIndexRoute,
+}
+
+const UsersUsersRouteWithChildren = UsersUsersRoute._addFileChildren(
+  UsersUsersRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  UsersIndexRoute: UsersIndexRoute,
+  UsersUsersRoute: UsersUsersRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
