@@ -1,5 +1,5 @@
 import type { User } from "@/domain/users/entities/User";
-import { TableActions, TableCell, TableRow } from "@/shared/ui/Table";
+import { TableActions, TableCell, TableRow } from "@/shared/ui/Table/Table";
 import { PencilIcon, Trash2 } from "lucide-react";
 import { useDeleteUser } from "../hooks/useDeleteUser";
 import { useState } from "react";

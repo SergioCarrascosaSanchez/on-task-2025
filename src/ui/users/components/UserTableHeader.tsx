@@ -1,4 +1,4 @@
-import { TableHead, TableHeader, TableRow } from "@/shared/ui/Table";
+import { TableHead, TableHeader, TableRow } from "@/shared/ui/Table/Table";
 import { USER_TABLE_HEADER } from "../constants/UserTableHeader";
 
 export function UserTableHeader() {

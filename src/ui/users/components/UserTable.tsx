@@ -1,5 +1,5 @@
 import type { User } from "@/domain/users/entities/User";
-import { Table, TableBody } from "@/shared/ui/Table";
+import { Table, TableBody } from "@/shared/ui/Table/Table";
 import { UserTableRow } from "./UserTableRow";
 import { UserTableHeader } from "./UserTableHeader";
 import { Pagination } from "@/shared/ui/Pagination/Pagination";
