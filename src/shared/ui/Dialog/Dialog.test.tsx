@@ -1,7 +1,5 @@
-// Dialog.test.tsx
 import { describe, it, expect } from "vitest";
 import { render, screen, fireEvent, within } from "@testing-library/react";
-import React from "react";
 import {
   Dialog,
   DialogTrigger,
