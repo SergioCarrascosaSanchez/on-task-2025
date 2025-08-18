@@ -1,4 +1,4 @@
-import { Input } from "@/shared/ui/Input";
+import { Input } from "@/shared/ui/Input/Input";
 import { SearchIcon } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useUserTableStore } from "../stores/UserTableStore";
