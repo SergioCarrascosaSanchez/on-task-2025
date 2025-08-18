@@ -2,7 +2,7 @@ import type { User } from "@/domain/users/entities/User";
 import { Table, TableBody } from "@/shared/ui/Table";
 import { UserTableRow } from "./UserTableRow";
 import { UserTableHeader } from "./UserTableHeader";
-import { Pagination } from "@/shared/ui/pagination";
+import { Pagination } from "@/shared/ui/Pagination/Pagination";
 
 interface UserTableProps {
   data: User[];

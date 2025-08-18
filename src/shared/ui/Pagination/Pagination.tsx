@@ -167,7 +167,7 @@ function Pagination({
             <PaginationItem key={`p-${it}-${idx}`}>
               <PageButton
                 active={it === page}
-                ariaLabel={`Ir a la página ${it}`}
+                ariaLabel={`Go to page ${it}`}
                 onClick={() => goTo(it)}
               >
                 {it}
