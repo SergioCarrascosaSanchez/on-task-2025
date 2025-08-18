@@ -30,9 +30,11 @@ export function SidebarItem({
         isExtended ? isExtendedClasses : isNotExtendedClasses
       )}
       onClick={onClick}
+      data-testid={`sidebar-item-${label}`}
     >
       <Icon
         className={`size-5 ${isActive ? "stroke-foreground" : "stroke-subtle"}`}
+        data-testid={`sidebar-icon-${label}`}
       />
       {isExtended && (
         <Typography variant="small" className="font-medium">
