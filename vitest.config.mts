@@ -19,7 +19,6 @@ export default defineConfig({
         "src/shared/lib/supabase/**",
         "src/shared/config/i18n/**",
         "src/shared/lib/**",
-        "src/shared/ui/**",
         "src/**/constants/**",
         "src/**/types/**",
         "src/**/dtos/**",

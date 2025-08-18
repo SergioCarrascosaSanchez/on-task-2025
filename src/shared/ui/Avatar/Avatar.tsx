@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as AvatarPrimitive from "@radix-ui/react-avatar";
 import { cn } from "@/shared/lib/utils";
-import { Typography } from "./Typography";
+import { Typography } from "../Typography";
 
 function AvatarBase({
   className,
@@ -109,4 +109,4 @@ function getFallbackLetters(name: string) {
   return `${nameArray[0][0].toUpperCase()}${nameArray[1][0].toUpperCase()}`;
 }
 
-export { Avatar, AvatarImage, AvatarFallback };
+export { Avatar };
