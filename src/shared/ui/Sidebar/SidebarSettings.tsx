@@ -1,6 +1,6 @@
 import { Moon, Settings, Sun } from "lucide-react";
 import { SidebarItem } from "./SidebarItem";
-import { Switch } from "../Switch";
+import { Switch } from "../Switch/Switch";
 import { Popover, PopoverContent, PopoverTrigger } from "../Popover/Popover";
 import { useTheme } from "@/shared/theme/ThemeProvider";
 
