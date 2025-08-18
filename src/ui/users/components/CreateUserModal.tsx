@@ -6,7 +6,7 @@ import {
 } from "@/shared/ui/Dialog";
 import { useTranslation } from "react-i18next";
 import { useForm, FormProvider } from "react-hook-form";
-import { Button } from "@/shared/ui/Button";
+import { Button } from "@/shared/ui/Button/Button";
 import { UserForm } from "./UserForm";
 import { useCreateUser } from "../hooks/useCreateUser";
 import type { UserToCreate } from "@/domain/users/types/UserToCreate";
