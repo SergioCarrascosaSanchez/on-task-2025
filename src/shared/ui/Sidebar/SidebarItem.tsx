@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { Typography } from "../Typography";
+import { Typography } from "../Typography/Typography";
 import { cn } from "@/shared/lib/utils";
 
 interface SidebarItemProps {

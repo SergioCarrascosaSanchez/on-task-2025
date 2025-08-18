@@ -1,5 +1,5 @@
 import { cn } from "@/shared/lib/utils";
-import { Typography } from "../Typography";
+import { Typography } from "../Typography/Typography";
 import { Avatar } from "../Avatar/Avatar";
 
 interface SidebarAccountItemProps {

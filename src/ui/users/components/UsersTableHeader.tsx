@@ -1,4 +1,4 @@
-import { Typography } from "@/shared/ui/Typography";
+import { Typography } from "@/shared/ui/Typography/Typography";
 import { Button } from "@/shared/ui/Button/Button";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
