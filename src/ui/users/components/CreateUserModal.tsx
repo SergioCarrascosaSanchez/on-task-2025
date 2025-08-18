@@ -3,7 +3,7 @@ import {
   DialogContent,
   DialogHeader,
   DialogTitle,
-} from "@/shared/ui/Dialog";
+} from "@/shared/ui/Dialog/Dialog";
 import { useTranslation } from "react-i18next";
 import { useForm, FormProvider } from "react-hook-form";
 import { Button } from "@/shared/ui/Button/Button";
