@@ -12,7 +12,7 @@ export function SidebarToggle({
   const iconClasses = "stroke-subtle size-5";
   return (
     <div
-      className="bg-sidebar p-2.5 rounded-lg grid place-content-center cursor-pointer absolute bottom-10 right-0 translate-x-1/2 translate-y-1/2"
+      className="bg-sidebar p-2.5 rounded-lg grid place-content-center cursor-pointer absolute top-6 right-0 translate-x-1/2 translate-y-1/2"
       onClick={onExtendedChange}
     >
       {isExtended ? (
