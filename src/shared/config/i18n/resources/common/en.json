@@ -4,6 +4,11 @@
   "input_placeholder": "Enter value...",
   "update": "Update",
   "search_placeholder": "Search...",
+  "sidebar": {
+    "users": "Users",
+    "settings": "Settings",
+    "groups": "Groups"
+  },
   "errors": {
     "required": "This field is required"
   }

@@ -7,6 +7,7 @@ import { useState } from "react";
 import { cn } from "@/shared/lib/utils";
 import { SidebarToggle } from "./SidebarToggle";
 import { SidebarSettings } from "./SidebarSettings";
+import { useTranslation } from "react-i18next";
 
 export function Sidebar() {
   const [isExtended, setIsExtended] = useState<boolean>(false);
@@ -16,6 +17,7 @@ export function Sidebar() {
   const commonClases =
     "h-screen bg-sidebar flex flex-col justify-between relative";
   const navigate = useNavigate();
+  const { t } = useTranslation("common");
   return (
     <div
       className={cn(
@@ -24,16 +26,20 @@ export function Sidebar() {
       )}
     >
       <div>
-        <SidebarAccountItem isExtended={isExtended} />
+        <SidebarAccountItem
+          isExtended={isExtended}
+          name={"Test User"}
+          email="testuser@test.com"
+        />
         <SidebarItem
-          label="Users"
+          label={t("sidebar.users")}
           icon={UsersIcon}
           onClick={() => navigate({ to: "/users" })}
           isActive={path.location.pathname === "/users"}
           isExtended={isExtended}
         />
         <SidebarItem
-          label="Groups"
+          label={t("sidebar.groups")}
           icon={FoldersIcon}
           onClick={() => navigate({ to: "/" })}
           isActive={path.location.pathname === "/groups"}

@@ -3,10 +3,16 @@ import { Typography } from "../Typography/Typography";
 import { Avatar } from "../Avatar/Avatar";
 
 interface SidebarAccountItemProps {
+  name: string;
+  email: string;
   isExtended: boolean;
 }
 
-export function SidebarAccountItem({ isExtended }: SidebarAccountItemProps) {
+export function SidebarAccountItem({
+  isExtended,
+  name,
+  email,
+}: SidebarAccountItemProps) {
   const commonClasses = "mb-4";
   const isExtendedClasses = "flex gap-3 items-center";
   const isNotExtendedClasses = "grid place-content-center";
@@ -18,13 +24,13 @@ export function SidebarAccountItem({ isExtended }: SidebarAccountItemProps) {
       )}
     >
       <div className="rounded-full border-muted-900 p-0.5 grid place-content-center border-solid border-1">
-        <Avatar name={"Test User"} />
+        <Avatar name={name} />
       </div>
       {isExtended && (
         <div>
-          <Typography className="font-bold">Test User</Typography>
+          <Typography className="font-bold">{name}</Typography>
           <Typography variant="small" className="text-subtle">
-            testuser@email.com
+            {email}
           </Typography>
         </div>
       )}

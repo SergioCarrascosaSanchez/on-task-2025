@@ -3,6 +3,7 @@ import { SidebarItem } from "./SidebarItem";
 import { Switch } from "../Switch/Switch";
 import { Popover, PopoverContent, PopoverTrigger } from "../Popover/Popover";
 import { useTheme } from "@/shared/theme/ThemeProvider";
+import { useTranslation } from "react-i18next";
 
 interface SidebarSettings {
   isExtended: boolean;
@@ -10,7 +11,7 @@ interface SidebarSettings {
 
 export function SidebarSettings({ isExtended }: SidebarSettings) {
   const { setTheme, theme } = useTheme();
-
+  const { t } = useTranslation("common");
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -18,7 +19,7 @@ export function SidebarSettings({ isExtended }: SidebarSettings) {
           <SidebarItem
             isActive={false}
             onClick={() => {}}
-            label="Settings"
+            label={t("sidebar.settings")}
             icon={Settings}
             isExtended={isExtended}
           />
