@@ -29,7 +29,7 @@ describe("Sidebar", () => {
 
     expect(screen.getByText("Test User")).toBeInTheDocument();
     expect(screen.getByText("Users")).toBeInTheDocument();
-    expect(screen.getByText("Groups")).toBeInTheDocument();
+    expect(screen.getByText("Projects")).toBeInTheDocument();
     expect(screen.getByText("Settings")).toBeInTheDocument();
   });
 });

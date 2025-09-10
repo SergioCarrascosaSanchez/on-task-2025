@@ -39,10 +39,10 @@ export function Sidebar() {
           isExtended={isExtended}
         />
         <SidebarItem
-          label={t("sidebar.groups")}
+          label={t("sidebar.projects")}
           icon={FoldersIcon}
-          onClick={() => navigate({ to: "/" })}
-          isActive={path.location.pathname === "/groups"}
+          onClick={() => navigate({ to: "/projects" })}
+          isActive={path.location.pathname === "/projects"}
           isExtended={isExtended}
         />
       </div>

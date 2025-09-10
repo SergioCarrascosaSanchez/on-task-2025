@@ -7,7 +7,7 @@
   "sidebar": {
     "users": "Users",
     "settings": "Settings",
-    "groups": "Groups"
+    "projects": "Projects"
   },
   "errors": {
     "required": "This field is required"

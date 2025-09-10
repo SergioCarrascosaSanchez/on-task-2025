@@ -8,53 +8,63 @@
 // You should NOT make any changes in this file as it will be overwritten.
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
+import { createFileRoute } from '@tanstack/react-router'
+
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as UsersUsersRouteImport } from './routes/_users/users'
 import { Route as UsersUsersIndexRouteImport } from './routes/_users/users/index'
+
+const ProjectsProjectsIndexLazyRouteImport = createFileRoute(
+  '/_projects/projects/',
+)()
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const UsersUsersRoute = UsersUsersRouteImport.update({
-  id: '/_users/users',
-  path: '/users',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const ProjectsProjectsIndexLazyRoute =
+  ProjectsProjectsIndexLazyRouteImport.update({
+    id: '/_projects/projects/',
+    path: '/projects/',
+    getParentRoute: () => rootRouteImport,
+  } as any).lazy(() =>
+    import('./routes/_projects/projects/index.lazy').then((d) => d.Route),
+  )
 const UsersUsersIndexRoute = UsersUsersIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => UsersUsersRoute,
+  id: '/_users/users/',
+  path: '/users/',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/users': typeof UsersUsersRouteWithChildren
-  '/users/': typeof UsersUsersIndexRoute
+  '/users': typeof UsersUsersIndexRoute
+  '/projects': typeof ProjectsProjectsIndexLazyRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/users': typeof UsersUsersIndexRoute
+  '/projects': typeof ProjectsProjectsIndexLazyRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/_users/users': typeof UsersUsersRouteWithChildren
   '/_users/users/': typeof UsersUsersIndexRoute
+  '/_projects/projects/': typeof ProjectsProjectsIndexLazyRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/users' | '/users/'
+  fullPaths: '/' | '/users' | '/projects'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/users'
-  id: '__root__' | '/' | '/_users/users' | '/_users/users/'
+  to: '/' | '/users' | '/projects'
+  id: '__root__' | '/' | '/_users/users/' | '/_projects/projects/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  UsersUsersRoute: typeof UsersUsersRouteWithChildren
+  UsersUsersIndexRoute: typeof UsersUsersIndexRoute
+  ProjectsProjectsIndexLazyRoute: typeof ProjectsProjectsIndexLazyRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -66,38 +76,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_users/users': {
-      id: '/_users/users'
-      path: '/users'
-      fullPath: '/users'
-      preLoaderRoute: typeof UsersUsersRouteImport
+    '/_projects/projects/': {
+      id: '/_projects/projects/'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsProjectsIndexLazyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/_users/users/': {
       id: '/_users/users/'
-      path: '/'
-      fullPath: '/users/'
+      path: '/users'
+      fullPath: '/users'
       preLoaderRoute: typeof UsersUsersIndexRouteImport
-      parentRoute: typeof UsersUsersRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
 
-interface UsersUsersRouteChildren {
-  UsersUsersIndexRoute: typeof UsersUsersIndexRoute
-}
-
-const UsersUsersRouteChildren: UsersUsersRouteChildren = {
-  UsersUsersIndexRoute: UsersUsersIndexRoute,
-}
-
-const UsersUsersRouteWithChildren = UsersUsersRoute._addFileChildren(
-  UsersUsersRouteChildren,
-)
-
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  UsersUsersRoute: UsersUsersRouteWithChildren,
+  UsersUsersIndexRoute: UsersUsersIndexRoute,
+  ProjectsProjectsIndexLazyRoute: ProjectsProjectsIndexLazyRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
